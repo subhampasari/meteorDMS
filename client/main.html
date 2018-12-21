@@ -16,8 +16,12 @@
     Uploading <b>{{file.name}}</b>: 
     <span id="progress">{{progress.get}}%</span>
   {{else}}
-    <input id="fileInput" type="file" />
-    <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
+    <form class="uploadFile">
+      <input id="fileInput" type="file" name="files"/>
+      Add Tags : <input type="text" name="tags">
+
+      <input type="submit" value="Upload">
+    </form>
   {{/with}}
 </template>
 

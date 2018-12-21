@@ -20,14 +20,24 @@ Template.uploadForm.helpers({
 });
 
 Template.uploadForm.events({
+
   'change #fileInput': function (e, template) {
     if (e.currentTarget.files && e.currentTarget.files[0]) {
-      // We upload only one file, in case
-      // there was multiple files selected
-      var file = e.currentTarget.files[0];
-      if (file) {
+      file = e.currentTarget.files[0];
+    }
+  },
+
+  'submit .uploadFile':function(event,template){
+    event.preventDefault();
+    console.log(file);
+    console.log("Tags : " + event.target.tags.value);
+    var tags = event.target.tags.value.split(",");
+    if (file) {
         var uploadInstance = Images.insert({
           file: file,
+          meta : {
+            "tags" : tags
+          },
           streams: 'dynamic',
           chunkSize: 'dynamic'
         }, false);
@@ -47,6 +57,6 @@ Template.uploadForm.events({
 
         uploadInstance.start();
       }
-    }
   }
 });
+
