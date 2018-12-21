@@ -1,0 +1,9 @@
+
+{
+  "s3": {
+    "key": "AKIAIR5RSPVVW2EEPPHQ",
+    "secret": "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",
+    "bucket": "spasari-meteor",
+    "region": "us-east-1"
+  }
+}
